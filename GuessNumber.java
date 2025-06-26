@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class GuessNumber {
 
+    // Method containig the game logic, input validation, and feedback
     public int gameLogic(int rNum, Scanner sc) {
         int guess;
         int attempts = 0;
@@ -10,6 +11,7 @@ public class GuessNumber {
         System.out.println("        Guess a number between 1 and 100");
         System.out.println("+---------------------------------------------------+");
 
+        // Loop until the user is right, with exception handling like input mismatch and range checking
         while (true) {
             try {
                 System.out.print("Guess: ");
@@ -20,13 +22,13 @@ public class GuessNumber {
                 continue;
             }
             
-            if (guess < 1 || guess > 100) {
-                System.out.println("Please enter a number between 1 and 100\n");
+            if (guess < 1 || guess > 100) {  // range check
+                System.out.println("Please enter a number between 1 and 100\n"); 
                 continue;
             }
-            attempts++;
+            attempts++; // Attempts increment to keep track of the number of guesses
 
-            int diff = Math.abs(guess - rNum);
+            int diff = Math.abs(guess - rNum); // to check closeness of the guess
 
             if (guess == rNum) {
                 System.out.println("\n+---------------------------------------------------+");
@@ -36,6 +38,7 @@ public class GuessNumber {
                 break;
             }
 
+            // Feedback based on the user's guess
             if (guess < rNum) {
                 if (diff < 10) {
                     System.out.println("Low, but close!\n");
@@ -59,19 +62,21 @@ public class GuessNumber {
                 }
             }
         }
-        return attempts;
+        return attempts; // Returns the number of attempts made to guess the number
     }
 
+    // Main method begins here
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String userChoice;
         int highScore = Integer.MAX_VALUE;
         GuessNumber game = new GuessNumber();
 
+        // Loop to check if the user wants to play again
         do {
-            int rNum = (int) (Math.random() * 100) + 1; // Random number between 1 and 100
+            int rNum = (int) (Math.random() * 100) + 1;     // Random number between 1 and 100
             int attempts = game.gameLogic(rNum, sc);
-            if (attempts < highScore) {
+            if (attempts < highScore) {     // Check for highscore 
                 highScore = attempts;
                 System.out.println("\nNew High Score: " + highScore + " attempts!");
             } else {
