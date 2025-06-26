@@ -1,16 +1,16 @@
-````markdown
+---
+
 # 🎯 GuessNumber Game (Java)
 
 A simple console-based number guessing game written in Java!
 
 ## 📌 Features
 
-- Random number between 1 and 100 each round
-- Feedback system based on how close your guess is
-- Input validation (handles invalid or out-of-range inputs)
-- Tracks and displays a personal high score
-- Option to play again after each round
-
+* Random number between 1 and 100 each round
+* Feedback system based on how close your guess is
+* Input validation (handles invalid or out-of-range inputs)
+* Tracks and displays a personal high score
+* Option to play again after each round
 
 ## 🧠 Gameplay
 
@@ -28,7 +28,7 @@ A simple console-based number guessing game written in Java!
 
 ## 📄 Example Output
 
-```
+```markdown
 +---------------------------------------------------+
         Guess a number between 1 and 100
 +---------------------------------------------------+
